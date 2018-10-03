@@ -1,4 +1,4 @@
-NAME = phoneBook
+NAME = examples
 
 SRC = $(NAME).cpp
 

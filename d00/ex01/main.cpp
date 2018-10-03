@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/01 20:10:27 by hasmith           #+#    #+#             */
-/*   Updated: 2018/10/01 20:56:54 by hasmith          ###   ########.fr       */
+/*   Updated: 2018/10/02 21:26:14 by hasmith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,20 @@
 
 int main()
 {
-    Sample instance;
+    char buff[512];
 
-    instance.foo = 42;
-    std::cout << "yo" << instance.foo << std::endl;
+    while (1){
+        std::cout << "Enter input(SEARCH, ADD, EXIT): ";
+        std::cin >> buff;
+        if (strcmp(buff, "EXIT")==0)
+            break;
+        else if (strcmp(buff, "ADD")==0){
+            std::cout << "ADD" << std::endl;
+            Sample person(1);
+
+        }
+        else if (strcmp(buff, "SEARCH")==0)
+            std::cout << "SEARCH" << std::endl;
+    }
     return 0;
 }

@@ -1,32 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phoneBook1.cpp                                     :+:      :+:    :+:   */
+/*   phoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/01 20:10:27 by hasmith           #+#    #+#             */
-/*   Updated: 2018/10/01 20:49:35 by hasmith          ###   ########.fr       */
+/*   Updated: 2018/10/02 21:28:28 by hasmith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "phoneBook.hpp"
 
-Sample::Sample(void)
+Sample::Sample(int start)
 {
-    std::cout << "Hello" << std::endl;
+    (void)start;
+    std::cout << "Start (costructor)" << std::endl;
+    Sample::setName();
+    std::cout << "The name is " << Sample::getName() << std::endl;
     return;
 }
 
 Sample::~Sample(void)
 {
-    std::cout << "Bye" << std::endl;
+    std::cout << "Bye(Destructor)" << std::endl;
     return;
 }
 
-void Sample::bar(void)
+void Sample::setName(void)
 {
-    std::cout << "Function" << std::endl;
-    return;
+    char buff[512];
+    std::cout << "Enter name: ";
+    std::cin >> buff;
+    Sample::_firstName = strdup(buff);
+}
+
+char *Sample::getName(void) const
+{
+    return Sample::_firstName;
 }
