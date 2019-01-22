@@ -1,13 +1,13 @@
 NAME = phoneBook
 
-SRC = $(NAME).cpp
+SRC = $(NAME).cpp Contact.class.cpp showContacts.cpp
 
-INC = $(NAME).hpp
+INC = Contact.class.hpp
 
 all: $(NAME)
 
 $(NAME):
-	g++ -Wall -Werror -Wextra $(SRC) main.cpp -o $(NAME)
+	clang++ -Wall -Werror -Wextra $(SRC) main.cpp -o $(NAME)
 
 clean:
 	/bin/rm -f *.o

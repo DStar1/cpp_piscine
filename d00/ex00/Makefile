@@ -5,7 +5,7 @@ SRC = 	megaphone.cpp
 all: $(NAME)
 
 $(NAME):
-	g++ -Wall -Werror -Wextra $(SRC) -o $(NAME)
+	clang++ -Wall -Werror -Wextra $(SRC) -o $(NAME)
 
 clean:
 	/bin/rm -f *.o
