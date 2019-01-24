@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 14:31:06 by hasmith           #+#    #+#             */
-/*   Updated: 2019/01/23 14:40:14 by hasmith          ###   ########.fr       */
+/*   Updated: 2019/01/23 16:05:31 by hasmith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@
 
 class Weapon {
     public:
-        Weapon(void);
+        Weapon(std::string s);
         ~Weapon(void);
-        void attack();
-    // private:
-        std::string  name;
-        std::string  type;
+        // void attack();
+		std::string 		type;
+		std::string const 	&getType();
+		void				 setType(std::string s);
 };
 
 

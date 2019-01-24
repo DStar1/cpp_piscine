@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*   Human.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/23 14:36:06 by hasmith           #+#    #+#             */
-/*   Updated: 2019/01/23 16:24:02 by hasmith          ###   ########.fr       */
+/*   Created: 2019/01/23 16:31:24 by hasmith           #+#    #+#             */
+/*   Updated: 2019/01/23 17:24:35 by hasmith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANB_H_
-# define HUMANB_H_
+#ifndef HUMAN_H_
+# define HUMAN_H_
 
 #include <string>
 #include <iostream>
-#include "Weapon.hpp"
+#include "Human.hpp"
+#include "Brain.hpp"
 
 
-class HumanB {
+class Human {
     public:
-        HumanB(std::string s);
-        ~HumanB(void);
+        Human(void);
+        ~Human(void);
 
-		Weapon 		*wep;
-		std::string 		name;
-        void setWeapon(Weapon &newWep);
-        void attack();
+        Brain brainRef;
+        Brain &getBrain(void);
+        std::string identify(void);
 };
 
 #endif
