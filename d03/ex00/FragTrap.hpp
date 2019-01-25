@@ -19,13 +19,23 @@
 class FragTrap {
     public:
         FragTrap(std::string n);
+        FragTrap(void);
         ~FragTrap(void);
         void rangedAttack(std::string const & target);
         void meleeAttack(std::string const & target);
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
 
-        
+        FragTrap operator=(FragTrap const &r);
+
+        void vaulthunter_dot_exe(std::string const & target);
+
+        int dead(void);
+        void pinch(std::string const & target);
+        void slap(std::string const & target);
+        void runAway(std::string const & target);
+        void hulkSmash(std::string const & target);
+        void throwCookies(std::string const & target);
     private:
         int hitPoints;
         int maxHitPoints;

@@ -1,6 +1,6 @@
-NAME = Pony
+NAME = FragTrap
 
-SRC = $(NAME).cpp main.cpp
+SRC = *.cpp
 
 all: $(NAME)
 
