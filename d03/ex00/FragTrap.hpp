@@ -20,10 +20,12 @@ class FragTrap {
     public:
         FragTrap(std::string n);
         ~FragTrap(void);
-        // rangedAttack(std::string const & target)
-        // meleeAttack(std::string const & target)
-        // takeDamage(unsigned int amount)
-        // beRepaired(unsigned int amount)
+        void rangedAttack(std::string const & target);
+        void meleeAttack(std::string const & target);
+        void takeDamage(unsigned int amount);
+        void beRepaired(unsigned int amount);
+
+        
     private:
         int hitPoints;
         int maxHitPoints;
