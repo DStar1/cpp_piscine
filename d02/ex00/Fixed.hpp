@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ZombieHorde.hpp                                    :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/22 23:11:17 by hasmith           #+#    #+#             */
-/*   Updated: 2019/01/22 23:51:35 by hasmith          ###   ########.fr       */
+/*   Created: 2019/01/23 20:36:56 by hasmith           #+#    #+#             */
+/*   Updated: 2019/01/24 14:03:02 by hasmith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HORDE_H_
-# define ZOMBIE_HORDE_H_
+#ifndef BRAIN_H_
+# define BRAIN_H_
 
 #include <string>
 #include <iostream>
-#include "Zombie.hpp"
 
-class ZombieHorde {
+class Fixed
+{
     public:
-		ZombieHorde(int n); 
-		~ZombieHorde(void);
+        Fixed(void);
+        Fixed(Fixed const& a);
+        ~Fixed(void);
 
-        int  n;
-        Zombie *horde;
+        int getRawBits(void) const;
+        void setRawBits(int const raw);
+        Fixed &operator=(Fixed const &r);
 
-        void announce(void);
-        void getN(void);  
-    // private:
-
+    private:
+        int fixedVal;
+        static const int fracBits = 8;
+        
 };
-
 
 #endif
