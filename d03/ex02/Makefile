@@ -1,11 +1,13 @@
-NAME = ScavTrap
+NAME = ClapTrap
 
 SRC = *.cpp
 
 all: $(NAME)
 
+FLAGS = -Wall -Werror -Wextra
+
 $(NAME):
-	clang++ -Wall -Werror -Wextra $(SRC) -o $(NAME)
+	clang++ $(FLAGS) $(SRC) -o $(NAME)
 
 clean:
 	/bin/rm -f *.o

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                           :+:      :+:    :+:   */
+/*   NinjaTrap.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,39 +10,29 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_H_
-# define SCAVTRAP_H_
+#ifndef NINJATRAP_H_
+# define NINJATRAP_H_
 
 #include <string>
 #include <iostream>
+#include "NinjaTrap.hpp"
+#include "ScavTrap.hpp"
+#include "NinjaTrap.hpp"
+#include "ClapTrap.hpp"
 
-class ScavTrap {
+class NinjaTrap : public ClapTrap
+{
     public:
-        ScavTrap(std::string n);
-        ScavTrap(const ScavTrap &scav);
-        ScavTrap(void);
-        ~ScavTrap(void);
-        void rangedAttack(std::string const & target);
-        void meleeAttack(std::string const & target);
-        void takeDamage(unsigned int amount);
-        void beRepaired(unsigned int amount);
+        NinjaTrap(std::string n);
+        NinjaTrap(NinjaTrap &ninj);
+        NinjaTrap(void);
+        ~NinjaTrap(void);
+        NinjaTrap &operator=(NinjaTrap const &r);
 
-        ScavTrap operator=(ScavTrap const &r);
-
-        void challengeNewcomer(void);
-
-        int dead(void);
-    private:
-        int hitPoints;
-        int maxHitPoints;
-        int energyPoints;
-        int maxEnergyPoints;
-        int level;
-        std::string name;
-        int meleeAttackDamage;
-        int rangedAttackDamage;
-        int armorDamageReduction;
-
+		void	ninjaShoeBox(ClapTrap &obj);
+		void	ninjaShoeBox(FragTrap &obj);
+		void	ninjaShoeBox(NinjaTrap &obj);
+		void	ninjaShoeBox(ScavTrap &obj);
 };
 
 

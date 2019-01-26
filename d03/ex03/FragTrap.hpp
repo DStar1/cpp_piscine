@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                           :+:      :+:    :+:   */
+/*   FragTrap.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,39 +10,31 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_H_
-# define SCAVTRAP_H_
+#ifndef FRAGTRAP_H_
+# define FRAGTRAP_H_
 
 #include <string>
 #include <iostream>
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
+#include "ClapTrap.hpp"
 
-class ScavTrap {
+class FragTrap : public ClapTrap
+{
     public:
-        ScavTrap(std::string n);
-        ScavTrap(const ScavTrap &scav);
-        ScavTrap(void);
-        ~ScavTrap(void);
-        void rangedAttack(std::string const & target);
-        void meleeAttack(std::string const & target);
-        void takeDamage(unsigned int amount);
-        void beRepaired(unsigned int amount);
+        FragTrap(std::string n);
+        FragTrap(FragTrap &obj);
+        FragTrap(void);
+        ~FragTrap(void);
+        FragTrap &operator=(FragTrap const &r);
 
-        ScavTrap operator=(ScavTrap const &r);
+        void vaulthunter_dot_exe(std::string const & target);
 
-        void challengeNewcomer(void);
-
-        int dead(void);
-    private:
-        int hitPoints;
-        int maxHitPoints;
-        int energyPoints;
-        int maxEnergyPoints;
-        int level;
-        std::string name;
-        int meleeAttackDamage;
-        int rangedAttackDamage;
-        int armorDamageReduction;
-
+        void pinch(std::string const & target);
+        void slap(std::string const & target);
+        void runAway(std::string const & target);
+        void hulkSmash(std::string const & target);
+        void throwCookies(std::string const & target);
 };
 
 

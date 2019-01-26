@@ -43,10 +43,18 @@ ScavTrap::ScavTrap(void) :
     std::cout << "ST4V-TP <" << name << "> constructor called!!!" << std::endl;
 }
 
+ScavTrap::ScavTrap(const ScavTrap &scav)
+{
+    srand(time(0));
+    *this = scav;
+    std::cout << "SC4V-TP <" << this->name << "> copy contructor called!!!" << std::endl;
+}
 
 ScavTrap::~ScavTrap(void){
     std::cout << "ST4V-TP <" << name << "> destructor called!!!" << std::endl;
 }
+
+
 
 ScavTrap ScavTrap::operator=(ScavTrap const &r){
     if (this != &r){
@@ -106,7 +114,7 @@ int ScavTrap::dead(void){
     return 0;
 }
 
-void ScavTrap::challengNewcomer(std::string const & target){
+void ScavTrap::challengeNewcomer(void){
     int i = rand() % 5;
     std::string challenges[5] = {
         "walk on the moon, backwards!",
@@ -115,5 +123,5 @@ void ScavTrap::challengNewcomer(std::string const & target){
         "skydiving competition while larping!",
         "jello eating competition where the jellow is actually made of lion king grub!"
     };
-    std::cout << "ST4V-TP <" << name << "> challenges <" << target << "> to a " << challenges[i] << std::endl;
+    std::cout << "SC4V-TP <" << this->name << "> challenges you to a " << challenges[i] << std::endl;
 }

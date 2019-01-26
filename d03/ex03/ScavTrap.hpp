@@ -15,34 +15,20 @@
 
 #include <string>
 #include <iostream>
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
+#include "ClapTrap.hpp"
 
-class ScavTrap {
+class ScavTrap : public ClapTrap {
     public:
         ScavTrap(std::string n);
-        ScavTrap(const ScavTrap &scav);
+        ScavTrap(ScavTrap &scav);
         ScavTrap(void);
         ~ScavTrap(void);
-        void rangedAttack(std::string const & target);
-        void meleeAttack(std::string const & target);
-        void takeDamage(unsigned int amount);
-        void beRepaired(unsigned int amount);
 
-        ScavTrap operator=(ScavTrap const &r);
-
+        ScavTrap &operator=(ScavTrap const &r);
         void challengeNewcomer(void);
-
         int dead(void);
-    private:
-        int hitPoints;
-        int maxHitPoints;
-        int energyPoints;
-        int maxEnergyPoints;
-        int level;
-        std::string name;
-        int meleeAttackDamage;
-        int rangedAttackDamage;
-        int armorDamageReduction;
-
 };
 
 

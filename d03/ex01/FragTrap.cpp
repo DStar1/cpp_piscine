@@ -44,6 +44,13 @@ FragTrap::FragTrap(void) :
 }
 
 
+FragTrap::FragTrap(const FragTrap &frag)
+{
+    srand(time(0));
+    *this = frag;
+    std::cout << "FR4G-TP <" << this->name << "> copy contructor called!!!" << std::endl;
+}
+
 FragTrap::~FragTrap(void){
     std::cout << "FR4G-TP <" << name << "> destructor called!!!" << std::endl;
 }

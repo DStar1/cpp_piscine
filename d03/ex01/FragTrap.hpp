@@ -19,6 +19,7 @@
 class FragTrap {
     public:
         FragTrap(std::string n);
+        FragTrap(const FragTrap &frag);
         FragTrap(void);
         ~FragTrap(void);
         void rangedAttack(std::string const & target);

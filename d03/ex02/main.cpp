@@ -6,23 +6,31 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/21 19:54:34 by hasmith           #+#    #+#             */
-/*   Updated: 2019/01/25 20:09:44 by hasmith          ###   ########.fr       */
+/*   Updated: 2019/01/25 20:09:56 by hasmith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
+#include "ClapTrap.hpp"
 
-int main()
+int	main()
 {
-    ScavTrap clap = ScavTrap("Yo");
-    clap.rangedAttack("Poop");
-    clap.meleeAttack("you");
-    clap.takeDamage(50);
-    clap.challengeNewcomer();
-    clap.challengeNewcomer();
-    clap.challengeNewcomer();
-    clap.challengeNewcomer();
-    clap.challengeNewcomer();
+	FragTrap frag1;
+	ScavTrap scav1;
 
-    return (0);
+	std::cout << std::endl;
+	frag1.meleeAttack("Boop");
+	scav1.meleeAttack("Beep");
+	frag1.rangedAttack("Boop");
+	scav1.rangedAttack("Half-Alive Skags");
+	frag1.takeDamage(15);
+	scav1.takeDamage(45);
+	frag1.beRepaired(20);
+	scav1.beRepaired(20);
+	frag1.vaulthunter_dot_exe("YOU");
+	scav1.challengeNewcomer();
+	FragTrap frag2(frag1);
+	ScavTrap scav2(scav1);
+	return (0);
 }

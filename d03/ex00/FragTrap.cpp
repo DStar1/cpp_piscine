@@ -25,7 +25,7 @@ FragTrap::FragTrap(std::string n) :
         armorDamageReduction(5) 
 {
     srand(time(0));
-    std::cout << "Contructor called!!!" << std::endl;
+    std::cout << "FR4G-TP <" << name << "> contructor called!!!" << std::endl;
 }
 
 FragTrap::FragTrap(void) :
@@ -40,12 +40,18 @@ FragTrap::FragTrap(void) :
         armorDamageReduction(5) 
 {
     srand(time(0));
-    std::cout << "Contructor called!!!" << std::endl;
+    std::cout << "FR4G-TP <" << name << "> contructor called!!!" << std::endl;
 }
 
+FragTrap::FragTrap(const FragTrap &frag)
+{
+    srand(time(0));
+    *this = frag;
+    std::cout << "FR4G-TP <" << this->name << "> copy contructor called!!!" << std::endl;
+}
 
 FragTrap::~FragTrap(void){
-    std::cout << "Destructor called!!!" << std::endl;
+    std::cout << "FR4G-TP <" << name << "> destructor called!!!" << std::endl;
 }
 
 FragTrap FragTrap::operator=(FragTrap const &r){
@@ -84,17 +90,17 @@ void FragTrap::takeDamage(unsigned int amount){
     if (hitPoints <= 0)
     {
         hitPoints = 0;
-        std::cout << name << " is DEAD!!!" << std::endl;
+        std::cout << "FR4G-TP <" << name << "> is DEAD!!!" << std::endl;
     }
 }
 
 void FragTrap::beRepaired(unsigned int amount){
-    if (hitPoints < 100)
+    if (hitPoints < maxHitPoints)
     {
         hitPoints += amount;
-        if (hitPoints > 100)
-            hitPoints = 100;
-        std::cout << name << " new health is " << hitPoints << std::endl;
+        if (hitPoints > maxHitPoints)
+            hitPoints = maxHitPoints;
+        std::cout << "FR4G-TP <" << name << "> new health is " << hitPoints << std::endl;
     }
 }
 
