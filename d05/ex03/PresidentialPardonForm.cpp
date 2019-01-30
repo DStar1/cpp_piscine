@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.cpp                                     :+:      :+:    :+:   */
+/*   PresidentialPardonForm.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,39 +10,36 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
 #include <iostream>
-#include "RobotomyRequestForm.hpp"
+#include <string>
+#include <ctime>
+#include <iomanip>
+#include <sstream>
+#include <fstream>
+#include "PresidentialPardonForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target) : Form(target, 72, 45)
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form(target, 25, 5)
 {
     return;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm &bur) : Form(bur.getName(), 72, 45)
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm &bur) : Form(bur.getName(), 25, 5)
 {
     *this = bur;
 }
 
-RobotomyRequestForm::~RobotomyRequestForm(void){
+PresidentialPardonForm::~PresidentialPardonForm(void){
     std::cout << "destructor called!" << std::endl;
 }
 
-RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm const &r){
+PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm const &r){
     (void)r;
-	return (*this);
+    return (*this);
 }
 
-void RobotomyRequestForm::execute(Bureaucrat const & executor) const {
-	static int i = 0;
+void PresidentialPardonForm::execute(Bureaucrat const & executor) const {
 	if ((this->getSigned() == true) && (executor.getGrade() <= this->getEGrade()))
-	{
-		system("afplay Drill.mp3 &");
-		if (i % 2 == 0)
-			std::cout << executor.getName() << " has been robotomized successfully" << std::endl;
-		else
-			std::cout << executor.getName() << " has failed to be robotomized" << std::endl;
-	}
+		std::cout << executor.getName() << " has been pardoned by Zafod Beeblebrox" << std::endl;
 	else if (this->getSigned() == false)
 		std::cout << "A Bureaucrat must signed this form first before it can be requested." << std::endl;
 	else
@@ -50,7 +47,7 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const {
 	return;
 }
 
-std::ostream	&operator<<(std::ostream &o, RobotomyRequestForm const &r)
+std::ostream	&operator<<(std::ostream &o, PresidentialPardonForm const &r)
 {
 	o << "Form Details:" << std::endl
 			<< "Name: " << r.getName() << std::endl
