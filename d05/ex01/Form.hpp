@@ -15,10 +15,11 @@
 
 #include <string>
 #include <iostream>
+#include "Bureaucrat.hpp"
 
 class Form {
     public:
-        Form(std::string n, int sgrade, int egrade);
+        Form(std::string n, int sg, int eg);
         Form(Form &obj);
         Form(void);
         virtual ~Form(void);
@@ -27,10 +28,12 @@ class Form {
 
         bool            getSigned(void) const;
         int             getSGrade(void) const;
-        void            setSGrade(int i);
         int             getEGrade(void) const;
-        void            setEGrade(void);
         std::string     getName(void) const;
+
+        void				signForm(void);
+        void				makeSigned(Bureaucrat &b);
+
 
         class GradeTooHighException : public std::exception
         {
@@ -59,6 +62,6 @@ class Form {
 
 };
 
-std::ostream	&operator<<(std::ostream &o, Form const &r); 
+std::ostream			&operator<<(std::ostream &o, Form const &r);
 
 #endif
