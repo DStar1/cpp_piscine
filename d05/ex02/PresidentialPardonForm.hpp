@@ -15,6 +15,7 @@
 
 #include <string>
 #include <iostream>
+#include "Bureaucrat.hpp"
 #include "Form.hpp"
 
 class PresidentialPardonForm : public Form {

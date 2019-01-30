@@ -13,8 +13,13 @@
 #ifndef SHRUBBERYCREATIONFORM_H_
 # define SHRUBBERYCREATIONFORM_H_
 
-#include <string>
 #include <iostream>
+#include <string>
+#include <ctime>
+#include <iomanip>
+#include <sstream>
+#include <fstream>
+#include "Bureaucrat.hpp"
 #include "Form.hpp"
 
 class ShrubberyCreationForm : public Form {

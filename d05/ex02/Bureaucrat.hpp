@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 14:42:01 by hasmith           #+#    #+#             */
-/*   Updated: 2019/01/28 17:05:05 by hasmith          ###   ########.fr       */
+/*   Updated: 2019/01/29 19:46:18 by hasmith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 #include <string>
 #include <iostream>
+#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat {
     public:
@@ -29,6 +32,8 @@ class Bureaucrat {
 
         int getGrade(void) const;
         std::string getName(void) const;
+
+        void executeForm(Form const &form);
 
         class GradeTooHighException : public std::exception
         {

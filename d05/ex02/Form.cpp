@@ -18,7 +18,7 @@
 #include <fstream>
 #include "Form.hpp"
 
-Form::Form(std::string const n, int sg, int eg) : name(n), sgrade(sg), egrade(eg)
+Form::Form(std::string const n, int sg, int eg) : name(n), ssigned(false), sgrade(sg), egrade(eg)
 {
     if (sg < 1 || eg < 1)
         throw Form::GradeTooHighException();
@@ -27,7 +27,7 @@ Form::Form(std::string const n, int sg, int eg) : name(n), sgrade(sg), egrade(eg
     return;
 }
 
-Form::Form(Form &bur)
+Form::Form(Form &bur) : sgrade(bur.sgrade), egrade(bur.egrade)
 {
     *this = bur;
 }

@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 14:41:54 by hasmith           #+#    #+#             */
-/*   Updated: 2019/01/28 17:05:01 by hasmith          ###   ########.fr       */
+/*   Updated: 2019/01/29 18:47:55 by hasmith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,18 @@ void Bureaucrat::operator-=(int const i) {
         throw Bureaucrat::GradeTooLowException();
     else
         this->grade = this->grade + i;
+}
+
+void Bureaucrat::executeForm(Form const &form) {
+	if (this->grade < form.getEGrade())
+	{
+		std::cout << "Bureaucrat " << this->name << " executes " << form.getName() << std::endl;
+		form.execute(*this);
+	}
+	else
+		std::cout << "Bureaucrat " << this->name << " grade is too low (" << this->grade << "). Must be "
+			<< form.getEGrade() << " to execute " << form.getName() << std::endl;
+	return;
 }
 
 std::ostream &operator<<(std::ostream &o, Bureaucrat const &r)

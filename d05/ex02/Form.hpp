@@ -17,9 +17,11 @@
 #include <iostream>
 #include "Bureaucrat.hpp"
 
+class Bureaucrat;
+
 class Form {
     public:
-        Form(std::string n, int sg, int eg);
+        Form(std::string const n, int sg, int eg);
         Form(Form &obj);
         Form(void);
         virtual ~Form(void);
@@ -34,6 +36,7 @@ class Form {
         void				signForm(void);
         void				makeSigned(Bureaucrat &b);
 
+        virtual void 		execute(Bureaucrat const &obj) const = 0;
 
         class GradeTooHighException : public std::exception
         {
@@ -55,9 +58,9 @@ class Form {
         };
     private:
         std::string const name;
-        int ssigned;
-        int sgrade;
-        int egrade;
+        bool ssigned;
+        int const sgrade;
+        int const egrade;
 
 
 };
